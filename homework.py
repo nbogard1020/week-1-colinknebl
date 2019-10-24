@@ -1,3 +1,5 @@
+from collections.abc import Sized
+
 class Teams:
     def __init__(self, members):
         self.__myTeam = members
@@ -15,15 +17,20 @@ class Teams:
 def main():
     classmates = Teams(['John', 'Steve', 'Tim'])
     print (len(classmates))
-    print('John' in classmates)
 
+    print()
+    print('John' in classmates) # True
+    print('Pete' in classmates) # False
+
+    print()
     for classmate in classmates:
-        print(classmate)
+        print(classmate) # John => Steve => Tim
 
-    print(isinstance(
+    print()
+    print('isInstance:', isinstance(
         classmates,
-        list
-    ))
+        Sized
+    )) # True
 
 
 main()
